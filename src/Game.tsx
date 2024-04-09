@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import { FaRegHandPaper } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Game = () => {
   return (
@@ -24,8 +25,10 @@ const Game = () => {
                     Você Perdeu
                 </h1>
 
-                
-                    <button className=' bg-slate-500 rounded-lg h-[50px] w-[110px] text-center' type="button">Jogar Novamente!</button>
+                    <Link to='/'>
+                        <button className=' bg-slate-500 rounded-lg h-[50px] w-[110px] text-center' type="button">Jogar Novamente!</button>
+                    </Link>
+                    
             </div>
 
             <div>

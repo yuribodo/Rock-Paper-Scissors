@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { score } from './Play'
 
 
 const Header = () => {
@@ -12,9 +13,9 @@ const Header = () => {
             <p>Tesoura</p>
         </div>
 
-        <div className=' bg-slate-400 w-[140px] h-[100px] m-10 rounded-lg'>
+        <div className=' bg-slate-400 w-[140px] h-[100px] m-10 rounded-lg '>
             <p className='text-center'>Score</p>
-            <p className='text-center mt-[15px] text-2xl'>{numero}</p>
+            <p className='text-center mt-[15px] text-2xl'>{score}</p>
         </div>
     </div>
 

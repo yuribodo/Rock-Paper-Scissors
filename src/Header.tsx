@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <div className='bg-gray-500 h-32  flex justify-between items-center m-10 rounded-lg'>
-        <div  className='m-10'>
+        <div  className='m-10 text-2xl'>
             <p>Pedra</p>
             <p>Papel</p>
             <p>Tesoura</p>

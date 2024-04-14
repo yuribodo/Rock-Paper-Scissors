@@ -2,23 +2,40 @@ import React, { useState } from 'react';
 import { FaRegHandPaper, FaRegHandScissors, FaRegHandRock, FaBook } from "react-icons/fa";
 import { Outlet, Link,  useNavigate } from "react-router-dom";
 import Modal from './Modal';
+import { PedraEscolhida as PedraInicial } from './variants';
+import Footer from './Footer';
 
 type Choice = 'pedra' | 'papel' | 'tesoura';
 
 
-
+let Pedrafoifoiescolhida = false
 let score = 0;
+
 
 const Play = () => {
     const [modalAberto, setModalAberto] = useState(false);
+    const [PedraAberto, setPedraAberto] = useState(true)
+    const [PedraEscolhida, setPedraEscolhida] = useState<boolean>(PedraInicial)
+    
 
     const abrirModal = () => {
-      setModalAberto(true);
+        setModalAberto(true);
     };
+
+   
+
+    const AbrirPedra = (pedra: boolean) => {
+        setPedraAberto(true)
+    }
+
+    const Fecharpedra = (pedra: boolean) => {
+        setPedraAberto(false)
+    }
   
     const fecharModal = () => {
       setModalAberto(false);
     };
+    
     const [playerChoice, setPlayerChoice] = useState<Choice | null>(null);
     const [computerChoice, setComputerChoice] = useState<Choice | null>(null);
     const [result, setResult] = useState<string | null>(null);
@@ -51,11 +68,22 @@ const Play = () => {
 
         // Se "pedra" foi escolhido, atualize o estado para indicar que já foi selecionado
         if (playerChoice === 'pedra') {
-            setPedraSelected(true);
+            Pedrafoifoiescolhida = true
+        } else {
+            Pedrafoifoiescolhida = false
         }
 
+        
+        
         navigate('/game', { state: { playerChoice, computerChoice, result: newResult } });
     };
+
+    const PlayPedra = (PedraEscolhida: boolean) => {
+        if (PedraEscolhida === false) {
+            Pedrafoifoiescolhida = true
+        } 
+        playGame('pedra')
+    }
 
     return (
         <div>
@@ -66,8 +94,19 @@ const Play = () => {
 
                 <Modal isOpen={modalAberto} onClose={fecharModal}>
                         {/* Conteúdo do seu modal aqui */}
-                        <h2>Meu Modal</h2>
-                        <p>Este é o conteúdo do meu modal.</p>
+                        <h1 className=' text-center font-serif font-bold text-3xl'>Regras Pedra, Papel e Tesoura</h1>
+                        <div className=' m-9 text-xl flex flex-col items-center justify-center '>
+                            
+                            <ol>
+                                <li>1. Pedra quebra Tesoura.</li>
+                                <li>2. Tesoura corta Papel.</li>
+                                <li>3. Papel embrulha Pedra.</li>
+                            </ol>
+                        </div>
+                        <div className='flex justify-center items-center'>
+                         <p className=' absolute bottom-0 mb-4 font-bold text-xl'>É isso! O jogador que escolher o objeto que vence ganha a rodada.</p>
+                         
+                        </div> 
                 </Modal>
 
                 <div 
@@ -82,21 +121,22 @@ const Play = () => {
                 >
                     <FaRegHandScissors/>
                 </div>
-                <div 
+                {!Pedrafoifoiescolhida && (
+                    <div 
                     className=' rounded-3xl bg-red-500 h-[75px] w-[75px] flex justify-center items-center hover:h-[90px] hover:w-[90px]'
                     onClick={() => playGame('pedra')}
                 >
                     <FaRegHandRock/>
                 </div>
+                )}
+                
             </div>
             <div>
-                <div 
-                    className=' rounded-3xl bg-purple-800 h-[75px] w-[75px] flex justify-center items-center hover:h-[90px] hover:w-[90px]'
-                    onClick={abrirModal}
-                >
-                    <FaBook />
-                </div>
                 
+                <div className='inline-block'
+                    onClick={abrirModal}> 
+                    <Footer/>
+                </div>
             </div>
             
         </div>

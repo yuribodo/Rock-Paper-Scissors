@@ -28,12 +28,12 @@ const Game = () => {
             </div>
 
             <div className='flex-col'>
-                <h1 className=' text-center'>
-                    
+                <h1 className=' mb-5 text-center text-xl'>
+                    {result}
                 </h1>
 
                     <Link to='/'>
-                        <button className=' bg-slate-500 rounded-lg h-[50px] w-[110px] text-center' type="button">{result}</button>
+                        <button className=' bg-slate-500 rounded-lg h-[50px] w-[110px] text-center font-bold' type="button">Jogar Novamente!</button>
                     </Link>
                     
             </div>

@@ -94,7 +94,7 @@ const Play = () => {
 
                 <Modal isOpen={modalAberto} onClose={fecharModal}>
                         {/* Conteúdo do seu modal aqui */}
-                        <h1 className=' text-center font-serif font-bold text-3xl'>Regras Pedra, Papel e Tesoura</h1>
+                        <h1 className='  text-center font-serif font-bold text-3xl'>Regras Pedra, Papel e Tesoura</h1>
                         <div className=' m-9 text-xl flex flex-col items-center justify-center '>
                             
                             <ol>
@@ -104,7 +104,7 @@ const Play = () => {
                             </ol>
                         </div>
                         <div className='flex justify-center items-center'>
-                         <p className=' absolute bottom-0 mb-4 font-bold text-xl'>É isso! O jogador que escolher o objeto que vence ganha a rodada.</p>
+                         <p className=' mt-[40px] absolute bottom-0  font-bold text-xl'>É isso! O jogador que escolher o objeto que vence ganha a rodada.</p>
                          
                         </div> 
                 </Modal>

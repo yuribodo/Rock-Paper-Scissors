@@ -1,23 +1,23 @@
 import React from 'react';
-import { IoMdClose } from "react-icons/io";
+import { IoMdClose } from 'react-icons/io';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children?: React.ReactNode; 
+  children?: React.ReactNode;
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="absolute h-[55vh] bg-gray-200 modal-overlay w-[50%] rounded-3xl ">
-      <div className="">
-        <button onClick={onClose} className="">
-          <IoMdClose className=' size-10'/>
+    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-200 rounded-3xl p-4 w-11/12 md:w-[50%] max-w-md h-[45vh]">
+      <div className="flex justify-end">
+        <button onClick={onClose}>
+          <IoMdClose className="text-gray-700 text-3xl" />
         </button>
-        {children}
       </div>
+      {children}
     </div>
   );
 };

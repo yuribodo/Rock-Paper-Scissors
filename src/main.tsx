@@ -10,6 +10,10 @@ import Game from './Game.tsx';
 
 const router = createBrowserRouter([
   {
+    path: "Rock-Paper-Scissors/",
+    element: <App/>,
+  },
+  {
     path: "/",
     element: <App/>,
   },

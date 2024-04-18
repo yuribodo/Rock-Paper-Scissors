@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './Header';
 import { FaRegHandPaper } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';

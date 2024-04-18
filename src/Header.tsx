@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+
 import { score } from './Play'
 
 
 const Header = () => {
-  const[numero, setNumero] = useState(0)
+  
 
   return (
     <div className='bg-gray-500 h-32  flex justify-between items-center m-10 rounded-lg'>

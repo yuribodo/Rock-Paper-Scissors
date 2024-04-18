@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import Modal from './Modal';
+import {useState} from 'react'
 import { FaBook } from 'react-icons/fa';
 
 const Footer = () => {
@@ -7,11 +6,9 @@ const Footer = () => {
 
     const abrirModal = () => {
         setModalAberto(true);
+        console.log(modalAberto)
     };
 
-    const fecharModal = () => {
-        setModalAberto(false);
-    };
   return (
 
 

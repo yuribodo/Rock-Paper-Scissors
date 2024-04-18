@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { FaRegHandPaper, FaRegHandScissors, FaRegHandRock, FaBook } from "react-icons/fa";
-import { Outlet, Link,  useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { FaRegHandPaper, FaRegHandScissors, FaRegHandRock, } from "react-icons/fa";
+import {  useNavigate } from "react-router-dom";
 import Modal from './Modal';
-import { PedraEscolhida as PedraInicial } from './variants';
+
 import Footer from './Footer';
 
 type Choice = 'pedra' | 'papel' | 'tesoura';
@@ -14,8 +14,6 @@ let score = 0;
 
 const Play = () => {
     const [modalAberto, setModalAberto] = useState(false);
-    const [PedraAberto, setPedraAberto] = useState(true)
-    const [PedraEscolhida, setPedraEscolhida] = useState<boolean>(PedraInicial)
     
 
     const abrirModal = () => {
@@ -24,22 +22,16 @@ const Play = () => {
 
    
 
-    const AbrirPedra = (pedra: boolean) => {
-        setPedraAberto(true)
-    }
-
-    const Fecharpedra = (pedra: boolean) => {
-        setPedraAberto(false)
-    }
-  
     const fecharModal = () => {
       setModalAberto(false);
     };
     
     const [playerChoice, setPlayerChoice] = useState<Choice | null>(null);
+    console.log(playerChoice)
     const [computerChoice, setComputerChoice] = useState<Choice | null>(null);
+    console.log(computerChoice)
     const [result, setResult] = useState<string | null>(null);
-    const [pedraSelected, setPedraSelected] = useState<boolean>(false); // Estado para controlar se "pedra" foi selecionado
+    console.log(result)
 
     const navigate = useNavigate();
 
@@ -47,14 +39,12 @@ const Play = () => {
 
     const playGame = (playerChoice: Choice) => {
         // Verifica se "pedra" já foi selecionado
-        if (playerChoice === 'pedra' && pedraSelected) {
-            // Se "pedra" já foi selecionado, sair da função sem fazer nada
-            return;
-        }
+        
 
         const computerChoice: Choice = choices[Math.floor(Math.random() * 3)];
         
         setPlayerChoice(playerChoice);
+        
         setComputerChoice(computerChoice);
         const newResult = playerChoice === computerChoice ? 'Empate' :
         ((playerChoice === 'pedra' && computerChoice === 'tesoura') ||
@@ -78,20 +68,13 @@ const Play = () => {
         navigate('/game', { state: { playerChoice, computerChoice, result: newResult } });
     };
 
-    const PlayPedra = (PedraEscolhida: boolean) => {
-        if (PedraEscolhida === false) {
-            Pedrafoifoiescolhida = true
-        } 
-        playGame('pedra')
-    }
-
     return (
         <div>
 
             
 
             <div className='flex justify-center items-center space-x-[100px] h-[35vh] '>
-
+                
                 <Modal isOpen={modalAberto} onClose={fecharModal}>
                         {/* Conteúdo do seu modal aqui */}
                         <h1 className='  text-center font-serif font-bold text-3xl'>Regras Pedra, Papel e Tesoura</h1>

@@ -21,7 +21,7 @@ const Game = () => {
 
                 <div className="flex flex-col items-center mb-4 md:mb-0">
                     <h1 className="text-center text-xl">{result}</h1>
-                    <Link to="/">
+                    <Link to="https://yuribodo.github.io/Rock-Paper-Scissors/">
                         <button className="bg-slate-500 rounded-lg h-12 md:h-14 w-32 text-center font-bold" type="button">
                             Jogar Novamente!
                         </button>

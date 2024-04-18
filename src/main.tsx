@@ -18,11 +18,7 @@ const router = createBrowserRouter([
     element: <App/>
   },
   {
-    path: "/",
-    element: <App/>,
-  },
-  {
-    path: "/game",
+    path: "https://yuribodo.github.io/Rock-Paper-Scissors/game",
     element: <Game />,
   },
 ]);

@@ -18,9 +18,10 @@ const router = createBrowserRouter([
     element: <App/>
   },
   {
-    path: "https://yuribodo.github.io/Rock-Paper-Scissors/game",
+    path: "/Rock-Paper-Scissors/game",
     element: <Game />,
   },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -65,7 +65,7 @@ const Play = () => {
 
         
         
-        navigate('https://yuribodo.github.io/Rock-Paper-Scissors/game', { state: { playerChoice, computerChoice, result: newResult } });
+        navigate('game', { state: { playerChoice, computerChoice, result: newResult } });
     };
 
     return (

@@ -1,24 +1,19 @@
-import {useState} from 'react'
 import { FaBook } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
-    const [modalAberto, setModalAberto] = useState(false);
-
-    const abrirModal = () => {
-        setModalAberto(true);
-        console.log(modalAberto)
-    };
-
   return (
-
-
-
     <div>
-        <div className=' rounded-3xl bg-purple-800 h-[75px] w-[75px] flex justify-center items-center hover:h-[90px] hover:w-[90px]'
-                    onClick={abrirModal}
+      
+        <motion.div 
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.9 }}
+          className=' rounded-3xl bg-purple-800 h-[75px] w-[75px] flex justify-center items-center '
+                    
                 >
+                  
                     <FaBook />
-                </div>
+                </motion.div>
                 
     </div>
   )

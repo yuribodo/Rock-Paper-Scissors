@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaRegHandPaper, FaRegHandScissors, FaRegHandRock, } from "react-icons/fa";
 import {  useNavigate } from "react-router-dom";
+import { motion } from "framer-motion"
 import Modal from './Modal';
 
 import Footer from './Footer';
@@ -71,11 +72,8 @@ const Play = () => {
     return (
         <div>
 
-            
 
-            <div className='flex justify-center items-center space-x-[100px] h-[35vh] '>
-                
-                <Modal isOpen={modalAberto} onClose={fecharModal}>
+                <Modal isOpen={modalAberto} onClose={fecharModal} >
                         {/* Conteúdo do seu modal aqui */}
                         <h1 className='  text-center font-serif font-bold text-3xl'>Regras Pedra, Papel e Tesoura</h1>
                         <div className=' m-9 text-xl flex flex-col items-center justify-center '>
@@ -91,26 +89,37 @@ const Play = () => {
                          
                         </div> 
                 </Modal>
+            
 
-                <div 
-                    className=' rounded-3xl bg-yellow-500 h-[75px] w-[75px] flex justify-center items-center hover:h-[90px] hover:w-[90px]'
+            <div className='flex justify-center items-center space-x-[100px] h-[35vh] '>
+                
+                
+
+                <motion.div 
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 0.9 }}
+                    className=' rounded-3xl bg-yellow-500 h-[75px] w-[75px] flex justify-center items-center max-sm:rounded-2xl'
                     onClick={() => playGame('papel')}
                 >
                     <FaRegHandPaper/>
-                </div>
-                <div 
-                    className=' rounded-3xl bg-blue-500 h-[75px] w-[75px] flex justify-center items-center hover:h-[90px] hover:w-[90px]'
+                </motion.div>
+                <motion.div 
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 0.9 }}
+                    className=' rounded-3xl bg-blue-500 h-[75px] w-[75px] flex justify-center items-center max-sm:rounded-2xl'
                     onClick={() => playGame('tesoura')}
                 >
                     <FaRegHandScissors/>
-                </div>
+                </motion.div>
                 {!Pedrafoifoiescolhida && (
-                    <div 
-                    className=' rounded-3xl bg-red-500 h-[75px] w-[75px] flex justify-center items-center hover:h-[90px] hover:w-[90px]'
+                    <motion.div 
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 0.9 }}
+                    className=' rounded-3xl bg-red-500 h-[75px] w-[75px] flex justify-center items-center max-sm:rounded-2xl'
                     onClick={() => playGame('pedra')}
                 >
                     <FaRegHandRock/>
-                </div>
+                </motion.div>
                 )}
                 
             </div>

@@ -21,6 +21,10 @@ const router = createBrowserRouter([
     path: "/Rock-Paper-Scissors/game",
     element: <Game />,
   },
+  {
+    path: "https://yuribodo.github.io/Rock-Paper-Scissors/game",
+    element: <Game/>
+  },
   
 ]);
 
